@@ -1,0 +1,33 @@
+<h1>Change My Password</h1>
+
+<div class="block">
+  <div class="secondary-navigation">
+    <div class="clear"></div>
+  </div>          
+  <div class="content">            
+    <div class="inner">
+      <% form_for @user, :url => password_reset_path, :method => :put, :html => { :class => :form } do |f| -%>
+
+
+      <div class="group">
+        <%= f.label :password, "Password", :class => :label %>
+        <%= f.password_field :password, :class => 'text_field' %>
+        <span class="description">Ex: a simple text</span>
+      </div>
+      
+      <div class="group">
+        <%= f.label :password_confirmation, "Password Confirmation", :class => :label %>
+        <%= f.password_field :password_confirmation, :class => 'text_field' %>
+        <span class="description">Ex: a simple text</span>
+      </div>
+
+        <div class="group navform">
+          <input type="submit" class="button" value="Update my password and log me in &rarr;" /> or <%= link_to 'Cancel', login_path %>
+        </div>
+
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

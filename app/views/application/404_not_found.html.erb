@@ -1,0 +1,8 @@
+<h1>Oops...</h1>
+<h2>We could not find the page you are looking for:</h2>
+<h3><%= link_to(request.url, request.url) %></h3>
+
+<% if RAILS_ENV == 'development' -%>
+<%= debug(@exception) %>
+<p></p>
+<% end -%>

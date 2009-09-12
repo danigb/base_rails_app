@@ -6,6 +6,7 @@ require 'spec/autorun'
 require 'spec/rails'
 require 'remarkable_rails'
 require 'authlogic/test_case'
+require 'delayed_job_test_enhancements'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -30,6 +31,7 @@ Spec::Runner.configure do |config|
   # names with your fixtures.
   #
   # config.global_fixtures = :table_a, :table_b
+  config.global_fixtures = :all
   #
   # If you declare global fixtures, be aware that they will be declared
   # for all of your examples, even those that don't use them.
@@ -50,4 +52,57 @@ Spec::Runner.configure do |config|
   # == Notes
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
+  
+  config.before(:each) do
+    FileUtils.rm_rf(File.join(RAILS_ROOT, 'public', 'uploaded_content', RAILS_ENV))
+  end
+  
+  config.after(:each) do
+    FileUtils.rm_rf(File.join(RAILS_ROOT, 'public', 'uploaded_content', RAILS_ENV))
+  end
+  
+end
+
+def should_require_login(sym, *args)
+  it 'should require login' do
+    send(sym, *args)
+    response.should redirect_to(login_path)
+  end
+end
+
+def controller_should_require_owner(options = {})
+  get_crud_methods(options).each do |action, verb|
+    describe action do
+      should_require_owner(verb, action)
+    end
+  end  
+end
+
+def controller_should_require_login(options = {})
+  get_crud_methods(options).each do |action, verb|
+    describe action do
+      should_require_login(verb, action)
+    end
+  end
+end
+
+def test_fixture_path(*args)
+  File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', *args))
+end
+
+def test_fixture_file(*args)
+  File.new(test_fixture_path(*args))
+end
+
+def get_crud_methods(options = {})
+  cruds = {:index => :get, :new => :get, :create => :post,
+           :show => :get, :edit => :get, :update => :put}
+  rcruds = cruds.dup
+  if options.has_key?(:except)
+    options[:except].each {|m| rcruds.delete(m)}
+  elsif options.has_key?(:only)
+    rcruds = {}
+    options[:only].each {|m| rcruds[m] = cruds[m]}
+  end
+  return rcruds
 end

@@ -10,6 +10,20 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+    when /the login page/
+      login_path
+    when /the login failed page/
+      user_session_path
+    when /the account page/
+      account_path
+    when /the registration page/
+      register_path
+    when /the registration failed page/
+      users_path
+    when /the forgot password screen/
+      new_password_reset_path
+    when /a bad password reset page/
+      password_reset_path('345678')
     
     # Add more mappings here.
     # Here is a more fancy example:

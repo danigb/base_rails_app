@@ -1,0 +1,17 @@
+user_1:
+  created_at: <%= 1.month.ago %>
+  last_request_at: <%= 1.day.ago %>
+  crypted_password: a7ef503e3ba2574cb677a7429d972117fd96b7d3d4e63fb3e39f9b1aa4dedf54c2b7e1371f4ac23e3fcd0d664c91363fe3c7d18ef27fd4f221f049d808c2ce49
+  updated_at: <%= Time.now %>
+  perishable_token: 2Q4mpT2g4BV_F-nWH8-0
+  id: 1
+  current_login_ip: 0.0.0.0
+  failed_login_count: 0
+  current_login_at: <%= Time.now %>
+  password_salt: HqG7n2MfRzEsk1npevdd
+  login_count: 1
+  persistence_token: 1776e63222c58c3a1c18ebe94f67a5a6cf7a7a5a88dd79de4afe1def8e5c86bc6009cf275e4e4c726eb5f769b447e6e2f8983b2959fb6c5a615490706674070e
+  last_login_ip: 
+  last_login_at: 
+  login: bobby
+  email: bobby@example.com
