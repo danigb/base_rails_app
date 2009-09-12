@@ -12,3 +12,5 @@ build/*
 *.mode1v3
 .svn
 profile
+db/*.sqlite3
+db/schema.rb
