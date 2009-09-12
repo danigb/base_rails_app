@@ -2,7 +2,7 @@ class Postman < ActionMailer::Base
   default_url_options[:host] = configatron.emails.host
     
   def welcome_email(user)
-    subject     'Welcome to NotifyHub.com!'
+    subject     'Welcome to MyWebSite.com!'
     from        configatron.emails.welcome.from
     recipients  user.email
     sent_on     Time.now
