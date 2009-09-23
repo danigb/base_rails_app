@@ -20,10 +20,14 @@ module NavigationHelpers
       register_path
     when /the registration failed page/
       users_path
-    when /the forgot password screen/
+    when /the reset password page/
       new_password_reset_path
+    when /the unknown reset password page/
+      password_resets_path
     when /a bad password reset page/
       password_reset_path('345678')
+    when /the account edit page/
+      edit_user_path(controller.current_user)
     
     # Add more mappings here.
     # Here is a more fancy example:

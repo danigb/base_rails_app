@@ -5,6 +5,16 @@ describe UsersController do
   
   controller_should_require_login(:except => [:new, :create])
   
+  describe 'index' do
+    
+    it 'should redirect you to the show page' do
+      login
+      get :index
+      response.should redirect_to(account_url)
+    end
+    
+  end
+  
   describe 'new' do
     
     it 'should give you a new user page' do

@@ -15,7 +15,7 @@ Feature: Account
     Then I should be logged out
     
   Scenario: Invalid Login
-    And I am on the login page
+    Given I am on the login page
     And I fill in login information for "bobsmith"
     Then I should fail login for "bobsmith"
     
@@ -28,3 +28,32 @@ Feature: Account
     And I press "Save"
     Then I should be logged in as "bobsmith"
     And I should receive a welcome email for "bobsmith"
+    
+  Scenario: Failed Registration
+    Given I am on the registration page
+    And I fill in "Login" with "bobsmith"
+    And I fill in "Email" with "bobsmith@example.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password Confirmation" with "23456789"
+    And I press "Save"
+    Then I should see "Password doesn't match confirmation"
+    
+  Scenario: Update Account
+    Given I am logged in as "bobsmith"
+    And I am on the account edit page
+    And I fill in "Login" with "bobsmith"
+    And I fill in "Email" with "bobsmith@example.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password Confirmation" with "password"
+    And I press "Save"
+    Then I should see "Account updated!"
+    
+  Scenario: Update Account
+    Given I am logged in as "bobsmith"
+    And I am on the account edit page
+    And I fill in "Login" with "bobsmith"
+    And I fill in "Email" with "bobsmith@example.com"
+    And I fill in "Password" with "password"
+    And I fill in "Password Confirmation" with "1234567890"
+    And I press "Save"
+    Then I should see "Password doesn't match confirmation"

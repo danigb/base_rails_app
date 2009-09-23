@@ -14,4 +14,4 @@ ActionController::Base.session = {
 # (create the session table with "rake db:sessions:create")
 # ActionController::Base.session_store = :active_record_store
 
-raise 'You NEED to run rake secret to generate a key for your sessions!!!!'
+# raise 'You NEED to run rake secret to generate a key for your sessions!!!!'

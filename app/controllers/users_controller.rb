@@ -3,9 +3,7 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update, :index]
   
   def index
-    if current_user
-      redirect_to(user_path(current_user))
-    end
+    redirect_to(account_url)
   end
   
   def new

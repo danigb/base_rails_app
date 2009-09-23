@@ -28,6 +28,7 @@ Then /^I should be logged out$/ do
 end
 
 Then /^I should fail login for "([^\"]*)"$/ do |login|
+  And %{I should see "Invalid login/password."}
   And %{I should be on the login failed page}
   And %{I should be logged out}
 end
