@@ -26,6 +26,7 @@ group(:test, :dependencies => :development, :load => false) do |g|
   g.add('remarkable_rails', :version => '3.1.10')
   g.add('fakeweb', :version => '1.2.6')
   g.add('thoughtbot-factory_girl', :version => '1.2.2', :require => 'factory_girl', :source => 'http://gems.github.com')
+  g.add('bmabey-email_spec', :version => '0.3.3', :require => 'email_spec', :source => 'http://gems.github.com')
 end
 
 group(:cucumber, :dependencies => :test) do |g|

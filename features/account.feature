@@ -27,7 +27,10 @@ Feature: Account
     And I fill in "Password Confirmation" with "password"
     And I press "Save"
     Then I should be logged in as "bobsmith"
-    And I should receive a welcome email for "bobsmith"
+    Then "bobsmith@example.com" should receive an email
+    When I open the email
+    Then I should see "Welcome to MyWebSite.com!" in the email subject
+    And I should see "username: bobsmith" in the email body
     
   Scenario: Failed Registration
     Given I am on the registration page
