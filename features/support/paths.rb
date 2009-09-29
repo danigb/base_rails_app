@@ -15,7 +15,7 @@ module NavigationHelpers
     when /the login failed page/
       user_session_path
     when /the account page/
-      account_path
+      my_account_path
     when /the registration page/
       register_path
     when /the registration failed page/

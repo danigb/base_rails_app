@@ -29,7 +29,7 @@ describe MyTestController do
       login
       get :hello_world
       flash[:notice].should == 'You must be logged out to access this page'
-      response.should redirect_to(account_url)
+      response.should redirect_to(my_account_url)
     end
     
   end

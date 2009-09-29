@@ -10,7 +10,7 @@ describe UsersController do
     it 'should redirect you to the show page' do
       login
       get :index
-      response.should redirect_to(account_url)
+      response.should redirect_to(my_account_url)
     end
     
   end
@@ -84,7 +84,7 @@ describe UsersController do
     it 'should update the current user' do
       login
       post :update, :user => {:email => 'foobar@example.com'}
-      response.should redirect_to(account_path)
+      response.should redirect_to(my_account_path)
       flash[:notice].should == 'Account updated!'
       current_user.reload
       current_user.email.should == 'foobar@example.com'

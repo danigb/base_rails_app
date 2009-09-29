@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update, :index]
   
   def index
-    redirect_to(account_url)
+    redirect_to(my_account_url)
   end
   
   def new
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       PostmanWorker.deliver_welcome_email(@user)
       flash[:notice] = "Account registered!"
-      redirect_back_or_default account_url
+      redirect_back_or_default my_account_url
     else
       render :action => :new
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = @current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
-      redirect_to account_url
+      redirect_to my_account_url
     else
       render :action => :edit
     end

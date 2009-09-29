@@ -1,11 +1,3 @@
-Then /^I should receive a welcome email for "([^\"]*)"$/ do |login|
-  email = ActionMailer::Base.deliveries.first
-  email.should_not be_nil
-  email.subject.should == 'Welcome to MyWebSite.com!'
-  email.body.should match(/username: #{login}/)
-  email.from.should == [configatron.emails.welcome.from]
-end
-
 Then /^I should receive a password reset email for "([^\"]*)"$/ do |login|
   user = User.find_by_login(login)
   email = ActionMailer::Base.deliveries.first
