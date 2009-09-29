@@ -1,4 +1,4 @@
-class PostmanWorker < Delayed::Worker
+class PostmanWorker < DJ::Worker
   
   attr_accessor :called_method
   attr_accessor :args
