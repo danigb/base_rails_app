@@ -10,6 +10,7 @@ group(:default) do |g|
   g.add('semanticart-is_paranoid', :version => ">=0.9.5", :require => "is_paranoid", :source => 'http://gems.github.com')
   g.add('authlogic', :version => ">=2.1.2", :require => "authlogic")
   g.add('paperclip', :version => ">=2.1.2", :require => "paperclip")
+  g.add('josevalim-inherited_resources', :require => 'inherited_resources', :version => '0.9.1', :source => 'http://gems.github.com')
 end
 
 group(:production, :dependencies => :default) do |g|
