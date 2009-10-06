@@ -2,7 +2,7 @@ group(:default) do |g|
   g.add('rails', :load => false, :version => '2.3.4')
   g.add('markbates-gemtronics', :load => false, :version => '>=0.6.0', :source => 'http://gems.github.com')
   g.add('configatron', :version => '>=2.5.1')
-  g.add('delayed_job_extras', :load => false, :version => '>=0.9.0')
+  g.add('delayed_job_extras', :load => false, :version => '0.9.4')
   g.add('javan-whenever', :load => false, :version => '>=0.3.7')
   g.add('cachetastic', :version => '>=3.0.4')
   g.add('mbleigh-acts-as-taggable-on', :version => ">=1.0.5", :require => "acts-as-taggable-on", :source => 'http://gems.github.com')
