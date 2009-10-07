@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+require 'fileutils'
+
+FileUtils.mkdir_p(File.expand_path(File.join(File.dirname(__FILE__), '..', 'tmp', 'pids')))
 
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'config', 'environment'))
 require 'delayed/command'
