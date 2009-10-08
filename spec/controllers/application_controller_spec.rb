@@ -14,9 +14,9 @@ class MyTestController < ApplicationController
 end
 
 ActionController::Routing::Routes.draw do |map|
-  map.with_options(:controller => 'my_test_controller') do |m|
-    m.my_hello_world '/my/hello/world', :action => 'hello_world'
-    m.my_ar_error '/my/ar/error', :action => 'ar_error'
+  map.with_options(:controller => 'my_test') do |m|
+    m.my_hello_world '/my_test/hello_world', :action => 'hello_world'
+    m.my_ar_error '/my_test/ar_error', :action => 'ar_error'
   end
 end
 
